@@ -1,12 +1,15 @@
-//Import Css
-import Search from '../Search/Search.jsx';
+import PokemonList from '../PokemonList/PokemonList';
+import Search from '../Search/Search';
 import './Pokedex.css';
+
 
 function Pokedex() {
     return (
         <div className='pokedexWrapper'>
-            <h1>POKEDEX</h1>
-            <Search/>
+            <h1>Pokedex</h1>
+            <Search />
+            <PokemonList/>
+            
         </div>
     )
 }
