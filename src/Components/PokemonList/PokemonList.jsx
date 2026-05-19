@@ -1,8 +1,11 @@
 import './PokemonList.css';
-import { useEffect } from 'react';
+import { useState,useEffect} from 'react';
 import axios from 'axios';
+import Pokemon from '../Pokemon/Pokemon';
 
 function PokemonList() {
+
+    const [pokemonList, setPokemonList] = useState([]);
     const POKIMON_URL = 'https://pokeapi.co/api/v2/pokemon/';
 
     async function downloadPokemons() {
@@ -17,12 +20,16 @@ function PokemonList() {
             return {
                 id:pokemon.id,
                 name:pokemon.name,
-                image:pokemon.sprites.other.dream_world.front_default,
+                image:
+                    pokemon.sprites.other.dream_world.front_default ||
+                    pokemon.sprites.other['official-artwork'].front_default ||
+                    pokemon.sprites.front_default,
                 types:pokemon.types
             }
 
         })
-        console.log(pokemonFinalList);
+        setPokemonList(pokemonFinalList);
+        // console.log(pokemonFinalList);
     }
 
     useEffect(() => {
@@ -30,9 +37,10 @@ function PokemonList() {
     }, [])
     
     return (
-        <>
-            
-        </>
+        <div className='pokemon-list-wrapper'>
+            <div>Pokemon List</div>
+            {pokemonList.map(pokemon => <Pokemon name={pokemon.name} key={pokemon.id} image={pokemon.image} />)}
+        </div>
     )
 }
 
