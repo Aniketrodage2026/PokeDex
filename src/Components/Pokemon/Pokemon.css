@@ -1,3 +1,11 @@
+.Pokemon-Link{
+    display:block;
+    flex-basis:30%;
+    text-decoration:none;
+    color:black;
+
+}
+
 .pokemon{
     flex: 0 1 400px;
     display:flex;

@@ -48,8 +48,7 @@ function PokemonList() {
                 <button onClick={()=>setPokedexUrl(nextUrl)}>Next</button>
             </div>
             <div className='pokemon-List'>
-                {pokemonList.map(pokemon => <Pokemon name={pokemon.name} key={pokemon.id} image={pokemon.image} />)}
-
+                {pokemonList.map(pokemon => <Pokemon name={pokemon.name} key={pokemon.id} image={pokemon.image} id={pokemon.id} />)}
             </div>
         </div>
     )
