@@ -1,5 +1,8 @@
-body{
-    /* background-color:rgb(129, 65, 20)
-     */
-    background-color:burlywood; 
+body {
+    margin: 0;
+    background-color: burlywood;
+}
+
+#root {
+    min-height: 100vh;
 }

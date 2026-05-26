@@ -1,5 +1,5 @@
 // Css imports
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import './PokemonDetails.css'
 import { useState,useEffect} from 'react';
 import axios from 'axios';
@@ -7,8 +7,7 @@ import axios from 'axios';
 function PokemonDetails() {
 
     const { id } = useParams();
-    const POKEMON_DETAIL_URL = 'https://pokemonapi.co/api/v2/pokemon/'
-    
+    const POKEMON_DETAIL_URL = 'https://pokeapi.co/api/v2/pokemon/';    
     const [pokemon, setPokemon] = useState(null);
 
     async function downLoadPokemon() {
@@ -30,24 +29,33 @@ function PokemonDetails() {
         downLoadPokemon();
     },[])
     return (
-        <>
-           pokemon && <div>
-                {pokemon.name}
-            </div>  
-            <div>
-                <image src={pokemon.image} alt={pokemon.name} />
-        
-            </div>
-            <div>
-                <h3>Height: {pokemon.height}</h3>
-                <h3>Weight: {pokemon.weight}</h3>
-            </div>
+        <div className='pokemon-details-page'>
+            <h1 className='pokemon-page-heading'>
+                <Link to="/" className='pokemon-list-link'>
+                    Pokemon List
+                 </Link>
+            </h1>
+            {pokemon && <div className='pokemon-details-wrapper'>
+                <div className='pokemon-detail-name'>
+                    {pokemon.name}
+                </div>
 
-            <div>
-                Type:{pokemon.types.map(type => <span key={t.type.name}>{t.type.name}</span>)}
+                <div className='pokemon-detail-image'>
+                    <img src={pokemon.image} alt={pokemon.name} />
+        
+                </div>
+
+                <div className='pokemon-attributes'>
+                    <h3>Height: {pokemon.height}</h3>
+                    <h3>Weight: {pokemon.weight}</h3>
+                </div>
+
+                <div className='pokemon-types'>
+                    <h3>Type:</h3>{pokemon.types.map((type) => <span className='type' key={type.type.name}> {type.type.name}</span>)}            </div>
             </div>
-        </>
-    )
+            }
+     </div>    
+            )
 }
 
 export default PokemonDetails;

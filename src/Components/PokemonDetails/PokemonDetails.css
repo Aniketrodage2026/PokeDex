@@ -1,0 +1,123 @@
+.pokemon-details-page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 0.75rem 1.5rem 1rem;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.pokemon-page-heading {
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.pokemon-list-link{
+    display: inline-block;
+    text-decoration: none;
+    color: #1f2937;
+}
+
+.pokemon-details-wrapper {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 1rem;
+    padding: 0.5rem 0 0;
+    text-align: center;
+    overflow: hidden;
+}
+
+.pokemon-detail-name {
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    letter-spacing: 0.35rem;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.pokemon-detail-image {
+    width: min(100%, 32rem);
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem;
+}
+
+.pokemon-detail-image img {
+    width: 100%;
+    max-width: 28rem;
+    max-height: min(42vh, 24rem);
+    object-fit: contain;
+}
+
+.pokemon-attributes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.pokemon-attributes h3 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.pokemon-types {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.9rem;
+    flex-wrap: wrap;
+}
+
+.pokemon-types > h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.12rem;
+    text-transform: uppercase;
+}
+
+.type {
+    font-size: 1.1rem;
+    line-height: 1;
+    border: 1px solid #1f2937;
+    padding: 0.7rem 1.2rem;
+    border-radius: 999px;
+    background-color: #f0fbff;
+    text-transform: capitalize;
+}
+
+@media (max-width: 640px) {
+    .pokemon-details-page {
+        padding: 0.75rem 1rem 1rem;
+    }
+
+    .pokemon-details-wrapper {
+        gap: 0.75rem;
+        padding-top: 0.5rem;
+    }
+
+    .pokemon-detail-name {
+        letter-spacing: 0.18rem;
+    }
+
+    .pokemon-detail-image {
+        padding: 0;
+    }
+
+    .pokemon-detail-image img {
+        max-height: min(34vh, 18rem);
+    }
+
+    .pokemon-attributes h3,
+    .pokemon-types > h3,
+    .type {
+        font-size: 1rem;
+    }
+}
