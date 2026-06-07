@@ -3,7 +3,8 @@ import Pokemon from '../Pokemon/Pokemon';
 import usePokemonList from '../../hooks/usePokemonList';
 
 function PokemonList() {
-    const [pokemonListState, setPokemonListState] = usePokemonList();
+     const Default_URL = 'https://pokeapi.co/api/v2/pokemon/';
+     const [pokemonListState, setPokemonListState] = usePokemonList(Default_URL);
     return (
         <div className='pokemon-list-wrapper'>
             <div className='Pokemon-lsit-Heading'>Pokemon List</div>
