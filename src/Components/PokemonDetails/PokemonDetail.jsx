@@ -1,13 +1,13 @@
 // Css imports
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './PokemonDetails.css'
 import usePokemonDetails from '../../hooks/usePokemonDetials';
 import Pokemon from '../Pokemon/Pokemon';
 
-function PokemonDetails() {
+function PokemonDetails(pokemonName) {
 
-    const { id } = useParams();
-    const [pokemon, pokemonListState] = usePokemonDetails(id);
+    
+    const [pokemon, pokemonListState] = usePokemonDetails(pokemonName);
     return (
         <>
         <div className='pokemon-details-page'>
